@@ -1,9 +1,14 @@
 'use strict'
 // ****** This provides the routing config using the state provider from the angular ui.routet ******//
-angular.module('yookoreApp').config(['$urlRouterProvider', '$stateProvider','$httpProvider', function ($urlRouterProvider, $stateProvider,$httpProvider) {
-
+angular.module('yookoreApp').config(function ($urlRouterProvider, $stateProvider, $httpProvider) {
+  
+  // Redirect to home view when route not found
     $urlRouterProvider.otherwise('/');
+	
+	// Main state routing
+
 	$stateProvider
+
 	.state('main',{
 		url: '/',
 		templateUrl: '/views/main.html'
@@ -18,6 +23,17 @@ angular.module('yookoreApp').config(['$urlRouterProvider', '$stateProvider','$ht
 		templateUrl: '/views/activitystream.html',
 		controller: 'ActivitystreamCtrl'
 	})
+	.state('logout',{
+		url: '/logout',
+		controller: 'LogoutCtrl'
+	})
+	.state('statusupdate',{
+		url: '/statusupdate',
+		templateUrl: '/views/statusupdate.html',
+		controller: 'StatusupdateCtrl'
+    });
 
+    $httpProvider.interceptors.push('authInterceptor')
 	
-}]);
+})
+   .constant('API_URL', 'http://localhost:3000/');
