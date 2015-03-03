@@ -1,17 +1,18 @@
 'use strict';
 
 
-angular.module('yookoreApp').controller('LoginCtrl', function ($scope, $http, API_URL, alert, authToken, $state, auth) {
-        $scope.submit = function  () {
+angular.module('yookoreApp').controller('LoginCtrl', function ($scope, alert, auth) {
+    $scope.submit = function() {
 
-    	auth.login($scope.email, $scope.password)
-    	.success(function  (res) {
-    		alert('success', 'Welcome!', 'Thanks for coming back, ' + res.user.email + '!');
-            $state.go('activitystream');
+        auth.login($scope.email, $scope.password)
+            .success(function(res) {
+                alert('success', 'Welcome!', 'Thanks for coming back, ' + res.user.email + '!');
 
-    	})
-    	.error(function  (err) {
-    		alert('warning', 'Something Went wrong :(', err.message);
-    	})
+            })
+            .error(function(err) {
+                alert('warning', 'Something Went wrong :(', err.message);
+            })
     }
-  });
+
+});
+
