@@ -18,6 +18,11 @@ angular.module('yookoreApp').config(function ($urlRouterProvider, $stateProvider
 		templateUrl: '/views/register.html',
 		controller: 'RegisterCtrl'
 	})
+	.state('login',{
+		url: '/login',
+		templateUrl: '/views/register.html',
+		controller: 'LoginCtrl'
+	})
 	.state('activitystream',{
 		url: '/activitystream',
 		templateUrl: '/views/activitystream.html',
@@ -33,7 +38,10 @@ angular.module('yookoreApp').config(function ($urlRouterProvider, $stateProvider
 		controller: 'StatusupdateCtrl'
     });
 
-    $httpProvider.interceptors.push('authInterceptor')
+    $httpProvider.interceptors.push('authInterceptor');
+
 	
 })
-   .constant('API_URL', 'http://localhost:3000/');
+   // .constant('API_URL', 'http://localhost:3000/');
+    .constant('API_URL', 'http://192.168.10.144:3000/');
+
