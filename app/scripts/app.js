@@ -9,4 +9,4 @@
  * Main module of the application.
  */
 angular
-  .module('yookoreApp', ['ui.router']);
+  .module('yookoreApp', ['ui.router','ngResource','angularMoment']);

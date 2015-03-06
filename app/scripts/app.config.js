@@ -42,6 +42,6 @@ angular.module('yookoreApp').config(function ($urlRouterProvider, $stateProvider
 
 	
 })
-   // .constant('API_URL', 'http://localhost:3000/');
-    .constant('API_URL', 'http://192.168.10.144:3000/');
+   .constant('API_URL_2', 'http://localhost:3000')
+   .constant('API_URL', 'http://192.168.10.144:3000');
 

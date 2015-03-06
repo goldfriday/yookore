@@ -15,9 +15,11 @@ angular.module('yookoreApp').controller('RegisterCtrl', function ($scope, alert,
             
         // };
 
-    	auth.register($scope.title, $scope.username, $scope.firstname, $scope.lastname, $scope.email, $scope.password,$scope.cellphone)
+    	auth.register($scope.firstname, $scope.lastname, $scope.title, $scope.username,  $scope.email, $scope.cellphone, $scope.password)
     	.success(function  (res) {
-    		alert('success', 'Account Created!', 'Welcome, ' + res.user.email + '!');
+            console.log(res);
+            var res = res;
+    		alert('success', 'Account Created!', 'Welcome, ' + res.email + '!');
 
     	})
     	.error(function  (err) {
